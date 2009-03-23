@@ -1,4 +1,4 @@
-package com.w2e.firehose;
+package com.w2e.firehose.twitter;
 
 import java.util.ArrayList;
 

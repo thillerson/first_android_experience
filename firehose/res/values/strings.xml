@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">The Twitter Firehose</string>
+    <string name="reload">Reload</string>
+    <string name="loading_title">Loading...</string>
+    <string name="loading_description">Loading Public Timeline</string>
 </resources>

@@ -1,8 +1,9 @@
-package com.w2e.firehose;
+package com.w2e.firehose.activity;
 
 import java.util.ArrayList;
 
 import com.w2e.firehose.resources.Status;
+import com.w2e.firehose.twitter.TwitterAPI;
 
 import android.app.ListActivity;
 import android.content.Context;

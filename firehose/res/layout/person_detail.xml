@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+
+	<ImageView
+	   	android:id="@+id/user_avatar"
+	   	android:layout_width="wrap_content"
+	   	android:layout_height="wrap_content"
+	   	android:adjustViewBounds="true"
+	   	android:layout_marginLeft="6sp" 
+    	android:layout_marginRight="6sp" />
+		
+	<TextView
+	   	android:id="@+id/user_screen_name_text"
+	   	android:layout_width="wrap_content"
+	   	android:layout_height="wrap_content" 
+    	android:textAppearance="@style/user_name_title"
+    	android:layout_toRightOf="@id/user_avatar" />
+	   	
+   	<TableLayout
+    	android:layout_width="fill_parent"
+    	android:layout_height="fill_parent"
+	    android:shrinkColumns="1"
+	    android:layout_marginTop="6sp"
+	    android:layout_below="@id/user_avatar">
+   		<TableRow>
+   			<TextView
+		    	android:layout_width="fill_parent"
+		    	android:layout_height="wrap_content"
+		    	android:text="@string/name"
+		    	android:paddingRight="8sp"
+		    	android:gravity="right"
+		    	android:textAppearance="@style/user_detail_label"
+   				/>
+   			<TextView
+   				android:id="@+id/user_name_text"
+		    	android:layout_width="fill_parent"
+		    	android:layout_height="wrap_content"
+   				/>
+   		</TableRow>
+   		<TableRow>
+   			<TextView
+		    	android:layout_width="fill_parent"
+		    	android:layout_height="wrap_content"
+		    	android:text="@string/location"
+		    	android:paddingRight="8sp"
+		    	android:gravity="right"
+		    	android:textAppearance="@style/user_detail_label"
+   				/>
+   			<TextView
+   				android:id="@+id/user_location_text"
+		    	android:layout_width="fill_parent"
+		    	android:layout_height="wrap_content"
+   				/>
+   		</TableRow>
+   		<TableRow>
+   			<TextView
+		    	android:layout_width="fill_parent"
+		    	android:layout_height="wrap_content"
+		    	android:text="@string/url"
+		    	android:gravity="right"
+		    	android:paddingRight="8sp"
+		    	android:textAppearance="@style/user_detail_label"
+   				/>
+   			<TextView
+   				android:id="@+id/user_url_text"
+		    	android:layout_width="fill_parent"
+		    	android:layout_height="wrap_content"
+		    	android:autoLink="all"
+   				/>
+   		</TableRow>
+	</TableLayout>
+</RelativeLayout>

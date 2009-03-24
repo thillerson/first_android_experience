@@ -141,7 +141,7 @@ public class User {
 	}
 	
 	public static String stringOrNull(String s) {
-		if (null == s) {
+		if (null == s || s.equals("null")) {
 			return null;
 		} else {
 			return s;

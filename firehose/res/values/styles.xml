@@ -5,6 +5,11 @@
         <item name="android:textSize">28sp</item>
         <item name="android:textStyle">bold</item>
     </style>
+    <style name="user_login_label">
+        <item name="android:textColor">@color/primary_black</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
     <style name="user_detail_label">
         <item name="android:textColor">@color/primary_black</item>
         <item name="android:textSize">20sp</item>

@@ -18,6 +18,8 @@ public final class R {
     }
     public static final class id {
         public static final int reload_button=0x7f070000;
+        public static final int status_text=0x7f070007;
+        public static final int status_user_name_text=0x7f070006;
         public static final int user_avatar=0x7f070001;
         public static final int user_location_text=0x7f070004;
         public static final int user_name_text=0x7f070003;
@@ -27,6 +29,7 @@ public final class R {
     public static final class layout {
         public static final int list_with_reload=0x7f030000;
         public static final int person_detail=0x7f030001;
+        public static final int status_list_item=0x7f030002;
     }
     public static final class string {
         public static final int app_name=0x7f050000;
@@ -42,7 +45,8 @@ public final class R {
         public static final int url=0x7f050006;
     }
     public static final class style {
-        public static final int user_detail_label=0x7f060001;
+        public static final int user_detail_label=0x7f060002;
+        public static final int user_login_label=0x7f060001;
         public static final int user_name_title=0x7f060000;
     }
 }

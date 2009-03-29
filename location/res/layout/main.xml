@@ -3,10 +3,52 @@
     android:orientation="vertical"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    >
-<TextView  
+    android:gravity="center">
+<TextView
     android:layout_width="fill_parent" 
     android:layout_height="wrap_content" 
-    android:text="@string/hello"
+    android:text="@string/latitude"
+    android:textColor="#0f0"
+    />
+<TextView
+    android:id="@+id/lat_text"
+    android:layout_width="fill_parent" 
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="25sp"
+    />
+<TextView
+    android:layout_width="fill_parent" 
+    android:layout_height="wrap_content" 
+    android:text="@string/longitude"
+    android:textColor="#0f0"
+    />
+<TextView
+    android:id="@+id/long_text"
+    android:layout_width="fill_parent" 
+    android:layout_height="wrap_content" 
+    android:layout_marginBottom="25sp"
+    />
+<TextView
+    android:layout_width="fill_parent" 
+    android:layout_height="wrap_content" 
+    android:text="@string/accuracy"
+    android:textColor="#0f0"
+    />
+<TextView
+    android:id="@+id/accuracy_text"
+    android:layout_width="fill_parent" 
+    android:layout_height="wrap_content" 
+    android:layout_marginBottom="25sp"
+    />
+<TextView
+    android:layout_width="fill_parent" 
+    android:layout_height="wrap_content" 
+    android:text="@string/geocode"
+    android:textColor="#0f0"
+    />
+<TextView
+    android:id="@+id/location_text"
+    android:layout_width="fill_parent" 
+    android:layout_height="wrap_content" 
     />
 </LinearLayout>

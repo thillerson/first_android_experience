@@ -32,14 +32,6 @@ public class DatabasePersistence extends ListActivity {
 		reselect();
 	}
 
-	private void reselect() {
-		GuestBookDBOpenHelper helper = new GuestBookDBOpenHelper(this);
-		SQLiteDatabase db = helper.getWritableDatabase();
-		Cursor cursor = db.query(GuestBookDBOpenHelper.TABLE_NAME, new String[] {"_id", "firstName", "lastName"}, null, null, null, null, "firstName");
-		adapter = new DBPersistenceCursorAdapter(this, cursor, true);
-		setListAdapter(adapter);
-	}
-
 	private void setUpViews() {
 		firstNameText = (EditText)findViewById(R.id.first_name_text);
 		lastNameText = (EditText)findViewById(R.id.last_name_text);
@@ -65,6 +57,18 @@ public class DatabasePersistence extends ListActivity {
 		
 		helper.close();
 		reselect();
+	}
+
+	private void reselect() {
+		GuestBookDBOpenHelper helper = new GuestBookDBOpenHelper(this);
+		SQLiteDatabase db = helper.getWritableDatabase();
+		Cursor cursor = db.query(GuestBookDBOpenHelper.TABLE_NAME, new String[] {"_id", "firstName", "lastName"}, null, null, null, null, "firstName");
+		if (null == adapter) {
+			adapter = new DBPersistenceCursorAdapter(this, cursor, true);
+		} else {
+			adapter.changeCursor(cursor);
+		}
+		setListAdapter(adapter);
 	}
 
 	private class DBPersistenceCursorAdapter extends CursorAdapter {

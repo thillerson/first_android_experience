@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+   	android:id="@+id/take_photo_root_view"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+    <SurfaceView
+    	android:id="@+id/photo_camera_surface"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" />
+    <ImageView
+    	android:id="@+id/photo_preview"
+	    android:layout_width="fill_parent"
+	    android:layout_height="fill_parent"
+	    android:visibility="gone" />
+</FrameLayout>

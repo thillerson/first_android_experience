@@ -13,4 +13,24 @@
 	    android:layout_width="fill_parent"
 	    android:layout_height="fill_parent"
 	    android:visibility="gone" />
+	<RelativeLayout
+    	android:id="@+id/photo_button_container"
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:padding="10sp"
+		android:layout_gravity="bottom"
+		android:visibility="gone"
+		android:background="#44000000">
+	    <Button
+	    	android:id="@+id/photo_save_photo_button"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:text="@string/save_photo" />
+	    <Button
+	    	android:id="@+id/photo_discard_photo_button"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:text="@string/discard"
+		    android:layout_alignParentRight="true" />
+	</RelativeLayout>
 </FrameLayout>

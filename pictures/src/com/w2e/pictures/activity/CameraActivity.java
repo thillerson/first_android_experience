@@ -3,7 +3,10 @@ package com.w2e.pictures.activity;
 import com.w2e.pictures.R;
 
 import android.app.Activity;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -14,6 +17,7 @@ import android.view.KeyEvent;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 
 public class CameraActivity extends Activity implements SurfaceHolder.Callback {
@@ -24,10 +28,11 @@ public class CameraActivity extends Activity implements SurfaceHolder.Callback {
 	private SurfaceView surface;
 	private SurfaceHolder surfaceHolder;
 	protected Bitmap	currentBitmap;
-	protected Bitmap	scaledBitmap;
 	protected ImageView	previewImageView;
-
+	private Button savePhotoButton;
+	private Button discardPhotoButton;
 	private boolean inPreviewMode;
+	private View buttonContainer;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -58,12 +63,15 @@ public class CameraActivity extends Activity implements SurfaceHolder.Callback {
 	}
 
 	private void showBitmapPreview() {
-		surface.setVisibility(View.GONE);
+		surface.setVisibility(View.VISIBLE);
 		previewImageView.setVisibility(View.VISIBLE);
 		previewImageView.setImageBitmap(currentBitmap);
+		buttonContainer.setVisibility(View.VISIBLE);
 	}
 	
 	private void showCameraPreview() {
+		buttonContainer.setVisibility(View.GONE);
+		surface.setVisibility(View.GONE);
 		previewImageView.setVisibility(View.GONE);
 		surface.setVisibility(View.VISIBLE);
 		previewImageView.setImageBitmap(null);
@@ -73,6 +81,20 @@ public class CameraActivity extends Activity implements SurfaceHolder.Callback {
 			System.gc();
 		}
 		camera.startPreview();
+	}
+
+    protected void saveCurrentPhoto() {
+		String photoPath = MediaStore.Images.Media.insertImage(
+				getContentResolver(), currentBitmap, "A Sweet Picture", "A Sweet Picture"
+			);
+		if (photoPath == null) {
+			Log.e(getClass().getName(),
+			        "Error saving photo to image library");
+			return;
+		} else {
+			Uri photoURI = Uri.parse(photoPath);
+			sendBroadcast(new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE, photoURI));
+		}
 	}
 
     public void surfaceCreated(SurfaceHolder holder) {
@@ -110,12 +132,27 @@ public class CameraActivity extends Activity implements SurfaceHolder.Callback {
 	protected void setUpViews() {
 		previewImageView = (ImageView)findViewById(R.id.photo_preview);
         surface = (SurfaceView)findViewById(R.id.photo_camera_surface);
+        savePhotoButton = (Button)findViewById(R.id.photo_save_photo_button);
+        discardPhotoButton = (Button)findViewById(R.id.photo_discard_photo_button);
+        buttonContainer = findViewById(R.id.photo_button_container);
         surfaceHolder = surface.getHolder();
         surfaceHolder.addCallback(this);
         surfaceHolder.setType(SurfaceHolder.SURFACE_TYPE_PUSH_BUFFERS);
+        
+        savePhotoButton.setOnClickListener(new View.OnClickListener() {
+			public void onClick(View v) {
+				saveCurrentPhoto();
+			}
+        });
+        
+        discardPhotoButton.setOnClickListener(new View.OnClickListener() {
+			public void onClick(View v) {
+				discardPhoto();
+			}
+        });
 	}
 	
-    protected void discardPhoto() {
+	protected void discardPhoto() {
     	showCameraPreview();
     }
     

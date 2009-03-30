@@ -1,0 +1,9 @@
+create an sdcard image to use with the emulator:
+
+mksdcard 2048M sdcard.img
+
+Then in your Eclipse preferences, go to Android > Launch, and add:
+
+-sdcard <path to sdcard>/sdcard.img 
+
+to the Default Emulator Options field.

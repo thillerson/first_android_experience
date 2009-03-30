@@ -19,6 +19,7 @@ public class FirstMapActivity extends MapActivity {
 
 	private MapView mapView;
 	private LinearLayout rootView;
+	private MyLocationOverlay myLocationOverlay;
 
 	@Override
 	protected void onCreate(Bundle icicle) {
@@ -26,6 +27,18 @@ public class FirstMapActivity extends MapActivity {
 		rootView = new LinearLayout(this);
 		setContentView(rootView, new LinearLayout.LayoutParams(LinearLayout.LayoutParams.FILL_PARENT, LinearLayout.LayoutParams.FILL_PARENT));
 		initializeMap();
+	}
+	
+	@Override
+	protected void onResume() {
+		super.onResume();
+		myLocationOverlay.enableMyLocation();
+	}
+	
+	@Override
+	protected void onPause() {
+		super.onPause();
+		myLocationOverlay.disableMyLocation();
 	}
 
 	@Override
@@ -46,7 +59,8 @@ public class FirstMapActivity extends MapActivity {
 		FrameLayout frame = new FrameLayout(this);
 		frame.setBackgroundColor(Color.BLACK);
 		frame.setPadding(2, 2, 2, 2);
-		mapView = new MapView(this, "0xNpjXHPZ2YOlycg_Qr6KRiCRXiOBgNrbBGu12g");
+		// this key will not work for you. See http://developer.android.com/guide/topics/location/geo/mapkey.html
+		mapView = new MapView(this, "0xNpjXHPZ2YP4LQhiE0rLBllVi3Ck5MWyhPxbMw");
 		frame.addView(mapView, new FrameLayout.LayoutParams(LayoutParams.FILL_PARENT, LayoutParams.FILL_PARENT));
 		mapView.setSatellite(false);
 		mapView.setClickable(true);
@@ -60,7 +74,7 @@ public class FirstMapActivity extends MapActivity {
 		frame.addView(zoomControls, layoutParams);
 		
 		final List<Overlay> overlays = mapView.getOverlays();
-		MyLocationOverlay myLocationOverlay = new MyLocationOverlay(this, mapView);
+		myLocationOverlay = new MyLocationOverlay(this, mapView);
 		overlays.add(myLocationOverlay);
 	}
 

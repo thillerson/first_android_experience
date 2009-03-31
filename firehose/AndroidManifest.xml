@@ -8,14 +8,14 @@
     		To change the launched activity, move the intent-filter tag to the 
     		activity you want launched -->
         <activity android:name=".activity.DeadSimpleList" android:label="@string/app_name">
-        </activity>
-        <activity android:name=".activity.SimpleListUsingThread" android:label="@string/app_name">
-        </activity>
-        <activity android:name=".activity.SimpleListUsingBackroundTask" android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity android:name=".activity.SimpleListUsingThread" android:label="@string/app_name">
+        </activity>
+        <activity android:name=".activity.SimpleListUsingBackroundTask" android:label="@string/app_name">
         </activity>
         <activity android:name=".activity.SimpleListWithOnClick" android:label="@string/app_name">
         </activity>

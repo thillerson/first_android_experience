@@ -2,7 +2,8 @@
 <com.w2e.firehose.layout.StatusListItem xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent">
+    android:layout_height="fill_parent"
+    android:background="@drawable/list_item_background">
 
 	<ImageView
 	   	android:id="@+id/user_avatar"
@@ -23,5 +24,6 @@
 	   	android:layout_width="wrap_content"
 	   	android:layout_height="wrap_content"
     	android:layout_toRightOf="@id/user_avatar"
-    	android:layout_below="@+id/status_user_name_text" />
+    	android:layout_below="@+id/status_user_name_text"
+    	android:textColor="@color/primary_black" />
 </com.w2e.firehose.layout.StatusListItem>

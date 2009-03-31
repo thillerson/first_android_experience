@@ -19,6 +19,7 @@ import android.view.SurfaceView;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 public class CameraActivity extends Activity implements SurfaceHolder.Callback {
 	
@@ -94,6 +95,7 @@ public class CameraActivity extends Activity implements SurfaceHolder.Callback {
 		} else {
 			Uri photoURI = Uri.parse(photoPath);
 			sendBroadcast(new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE, photoURI));
+			Toast.makeText(this, "Saved Photo", Toast.LENGTH_LONG).show();
 		}
 	}
 

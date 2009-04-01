@@ -14,6 +14,7 @@ import com.google.android.maps.MapActivity;
 import com.google.android.maps.MapView;
 import com.google.android.maps.MyLocationOverlay;
 import com.google.android.maps.Overlay;
+import com.w2e.firehose.overlay.MyNicerlocationOverlay;
 
 public class FirstMapActivity extends MapActivity {
 
@@ -62,7 +63,7 @@ public class FirstMapActivity extends MapActivity {
 		// this key will not work for you. See http://developer.android.com/guide/topics/location/geo/mapkey.html
 		mapView = new MapView(this, "0xNpjXHPZ2YP4LQhiE0rLBllVi3Ck5MWyhPxbMw");
 		frame.addView(mapView, new FrameLayout.LayoutParams(LayoutParams.FILL_PARENT, LayoutParams.FILL_PARENT));
-		mapView.setSatellite(false);
+		mapView.setSatellite(true);
 		mapView.setClickable(true);
 		mapView.setEnabled(true);
 		rootView.addView(frame, 0, new LinearLayout.LayoutParams(LayoutParams.FILL_PARENT, LayoutParams.FILL_PARENT));

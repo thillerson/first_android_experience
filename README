@@ -1,3 +1,5 @@
+# Important (Read First)
+
 create an sdcard image to use with the emulator:
 
 mksdcard 2048M sdcard.img
